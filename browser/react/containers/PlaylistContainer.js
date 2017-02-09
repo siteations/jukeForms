@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import NewPlaylist from '../components/NewPlaylist';
 import axios from 'axios';
+import { hashHistory } from 'react-router';
 //import FilterInput from '../components/FilterInput';
 
 
@@ -24,9 +25,15 @@ export default class PlaylistContainer extends React.Component {
 
 	submitting(e){
 		e.preventDefault();
-		console.log(this.state.value);
+		//console.log(this.state.value);
+
 		this.props.createList(this.state.value);
+		//console.log(this.props.selectedPlaylist);
+ 		const path = `/playlists/${this.props.selectedPlaylist.id}/`;
+    hashHistory.push(path);
 		this.setState({ value: '' , dirty: false});
+
+
 	}
 
 	isDirty(){

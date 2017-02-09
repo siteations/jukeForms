@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const Sidebar = ({playlists}) => {
-  console.log(playlists);
+  //console.log(playlists);
 
   return (
     <sidebar>
@@ -30,13 +30,10 @@ const Sidebar = ({playlists}) => {
         <ul className="menu-item">
         { playlists.map( playlist =>
           (<li key={playlist.id} className="playlist-item menu-item">
-            <Link to = `/playlist/${playlist.id}`>{playlist.name}</Link>
+            <Link to = {`/playlists/${playlist.id}`}>{playlist.name}</Link>
           </li>)
           )
         }
-          <li className="playlist-item menu-item">
-            <Link to="WHERE_TO_GO">another playlist</Link>
-          </li>
         </ul>
     </sidebar>
   );
